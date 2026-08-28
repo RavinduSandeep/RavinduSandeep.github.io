@@ -118,10 +118,11 @@
       .map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("");
     var extra = (p.tech || []).length - (p.featured ? 6 : 4);
     if (extra > 0) tags += '<span class="tag more">+' + extra + "</span>";
+    var fit = p.coverFit === "cover" ? "cover" : "contain";
     c.innerHTML =
-      '<div class="card-media">' +
+      '<div class="card-media fit-' + fit + '">' +
         '<div class="card-badges">' + badges + "</div>" +
-        '<img src="' + esc(p.cover) + '" alt="' + esc(p.title) + '" loading="lazy" width="600" height="375" />' +
+        '<img src="' + esc(p.cover) + '" alt="' + esc(p.title) + '" loading="lazy" style="object-fit:' + fit + '" />' +
         '<span class="card-open">Case study →</span>' +
       "</div>" +
       '<div class="card-body">' +
@@ -169,7 +170,7 @@
       '<span class="modal-cat">' + esc(p.category) + "</span>" +
       '<h3 class="modal-title" id="modalTitle">' + esc(p.title) + "</h3>" +
       '<span class="modal-year">' + esc(p.year) + "</span>" +
-      '<div class="modal-hero"><img src="' + esc(p.cover) + '" alt="' + esc(p.title) + '" /></div>' +
+      '<div class="modal-hero fit-' + (p.coverFit === "cover" ? "cover" : "contain") + '"><img src="' + esc(p.cover) + '" alt="' + esc(p.title) + '" style="object-fit:' + (p.coverFit === "cover" ? "cover" : "contain") + '" /></div>' +
       section("The Challenge", "<p>" + esc(p.challenge) + "</p>") +
       section("The Solution", "<p>" + esc(p.solution) + "</p>") +
       (contribution ? section("My Contribution", "<ul>" + contribution + "</ul>") : "") +
@@ -252,6 +253,25 @@
     });
   }
 
+  /* --------------------------------------------------------- publications */
+  function buildPublications() {
+    var host = $("[data-publications]");
+    if (!host || !D.publications) return;
+    D.publications.forEach(function (pub) {
+      var card = el("div", "pub-card reveal");
+      card.innerHTML =
+        '<div class="pub-top"><span class="pub-type">' + esc(pub.type) + "</span>" +
+        '<span class="pub-year">' + esc(pub.year) + "</span></div>" +
+        '<h3 class="pub-title">' + esc(pub.title) + "</h3>" +
+        '<p class="pub-authors">' + esc(pub.authors).replace(/(R\.S\.W\.\s*Madanayaka)/, '<strong style="color:var(--text)">$1</strong>') + "</p>" +
+        '<p class="pub-venue">' + esc(pub.venue) + "</p>" +
+        (pub.link ? '<a class="pub-link" href="' + esc(pub.link) + '" target="_blank" rel="noopener">View publication ↗</a>' : "");
+      host.appendChild(card);
+    });
+    var s = $("[data-scholar]");
+    if (s) { D.profile.scholar ? (s.href = D.profile.scholar) : (s.style.display = "none"); }
+  }
+
   /* ----------------------------------------------------------- education */
   function buildEducation() {
     var host = $("[data-education]");
@@ -332,6 +352,7 @@
   buildCapabilities();
   buildExperience();
   buildResearch();
+  buildPublications();
   buildEducation();
   initReveal();
   initNavSpy();

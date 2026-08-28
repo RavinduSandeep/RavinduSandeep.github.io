@@ -28,6 +28,7 @@ const PORTFOLIO = {
     email: "ravindumsandeep@gmail.com",
     github: "https://github.com/RavinduSandeep",
     linkedin: "https://www.linkedin.com/in/ravindu-sandeep/",
+    scholar: "https://scholar.google.com/citations?user=dVNjvdkAAAAJ&hl=en",
     // Path to your CV. Replace assets/docs/Ravindu-Madanayaka-CV.pdf with the
     // real file (a placeholder is committed so the link never 404s).
     resume: "assets/docs/Ravindu-Madanayaka-CV.pdf",
@@ -87,7 +88,8 @@ const PORTFOLIO = {
       category: "Industrial Automation",
       featured: true,
       year: "2025 – Present",
-      cover: "assets/images/project-7.png", // VERIFY: swap for a tea-machine photo when available
+      cover: "assets/images/tea-blending-cover.svg", // branded schematic — replace with a real photo when cleared for publication
+      coverFit: "cover",
       problem:
         "Produce consistent, repeatable custom tea blends with supervisory control and remote oversight across distributed teams.",
       challenge:
@@ -99,7 +101,6 @@ const PORTFOLIO = {
         "Fabrication and hardware integration",
         "Firmware development for actuator / dispensing control",
         "Supervisory-level control on Raspberry Pi 5",
-        "Contributed to an off-grid LiFePO4 battery pack with BMS",
         "Parallel work on an AI-integrated, remotely controllable teleconferencing robot",
       ],
       architecture: [
@@ -107,14 +108,12 @@ const PORTFOLIO = {
         "Firmware (MCU)",
         "Raspberry Pi 5 (Supervisory)",
         "Recipe / State Control",
-        "Off-grid LiFePO4 + BMS",
       ],
       tech: [
         "Raspberry Pi 5",
         "SolidWorks",
         "Firmware",
         "Embedded Control",
-        "BMS / LiFePO4",
         "Industrial Integration",
       ],
       result:
@@ -163,36 +162,37 @@ const PORTFOLIO = {
         "PCB",
       ],
       result:
-        "1st Runner-Up, Research & Innovation Exhibition — 8th Annual Research Symposium, Faculty of Technology, University of Colombo, 2024.",
-      links: {},
+        "1st Runner-Up, Research & Innovation Exhibition — 8th Annual Research Symposium, Faculty of Technology, University of Colombo, 2024. The work led to two peer-reviewed publications (see Publications).",
+      links: { caseStudy: "https://scholar.google.com/citations?user=dVNjvdkAAAAJ&hl=en" },
     },
     {
       id: "stretching-machine",
-      title: "Automated Garment Stretching Machine",
+      title: "Garment Tube Stretching Machine",
       category: "Industrial Automation",
       featured: true,
       year: "2025",
       cover: "assets/images/project-6.png",
+      coverFit: "contain",
       problem:
-        "Eliminate crush marks on garment tubes while reducing manual labour on the line.",
+        "Eliminate crush marks on an 18,000-pc Lululemon order while removing manual tube stretching by team members.",
       challenge:
-        "Garment tubes developed crush marks and required manual handling. The line needed an automated machine that an operator could simply load, then let run — built from scratch: mechanical design, electrical wiring and control.",
+        "Garment tubes developed crush marks and were stretched manually by a minimum of four workers per cycle — poor for ergonomics, safety and consistency, with no repeatable stretch length. The line needed an automated machine an operator could load and let run.",
       solution:
-        "A full machine design in SolidWorks, driven by a Xinje XC-series PLC with NEMA 34 stepper motors and a KINCO HMI. The operator loads tubes; the machine completes the stretching sequence autonomously.",
+        "A full machine designed and fabricated in SolidWorks, driven by a Xinje XC-series PLC with NEMA 34 stepper motors and a KINCO HMI for precise, repeatable stretching. The operator loads tubes and the machine completes the sequence autonomously — up to four tubes per cycle.",
       contribution: [
         "SolidWorks mechanical design & fabrication",
         "Complete machine wiring and panel board",
-        "PLC programming (Xinje XC series)",
+        "PLC programming (Xinje XC series) and HMI-controlled sequence",
         "Delta servo encoder interfacing with the PLC",
         "VFD configuration for dye-machine integration",
         "PT100 & level sensor installation and full machine testing",
       ],
       architecture: [
-        "Operator Load",
+        "Operator Load (≤4 tubes)",
         "Sensors (PT100 / Level)",
         "Xinje XC PLC",
         "Stepper / Servo Drive",
-        "HMI",
+        "KINCO HMI",
       ],
       tech: [
         "Xinje XC3-14RT PLC",
@@ -204,7 +204,7 @@ const PORTFOLIO = {
         "PT100",
       ],
       result:
-        "Automated the stretching operation end-to-end, removing a manual handling step from the process.",
+        "Delivered an automated stretching machine that cut labour from 4 workers to 1 operator, processes up to 4 tubes per cycle, and lets operators do parallel tasks during operation — improving productivity, consistency and safety. Completed; started 23 Apr 2025 (Industrial Engineering).",
       links: {},
     },
     {
@@ -213,25 +213,27 @@ const PORTFOLIO = {
       category: "Digitalization",
       featured: true,
       year: "2025",
-      cover: "assets/images/project-9.png", // VERIFY: replace with a dashboard screenshot if available
+      cover: "assets/images/fabric-inspection.png",
+      coverFit: "contain",
       problem:
-        "Replace manual A4 paper logs in fabric inspection with real-time digital reporting.",
+        "Transform a manual, A4 paper-based fabric inspection process into a real-time digital system.",
       challenge:
-        "Inspectors recorded results on A4 sheets, so metrics like FTT (First-Time-Through) and defect rates were calculated manually and visibility was delayed.",
+        "Inspectors recorded results on A4 sheets, so FTT (First-Time-Through) and defect rates were calculated by hand, multiple inspectors couldn't work without conflict, and visibility for team leaders was delayed.",
       solution:
-        "A Power Apps tablet application for every inspector, with reports (FTT, defect rates) auto-calculated, and live Power BI dashboards including a Gantt-style view of workloads. Built on the Microsoft 365 stack with automated workflows.",
+        "A Power Apps application (Fabric Inspection & Operations Tracker) used by team members on tablets. The flow runs Batch In → Admin Panel → Fabric Inspection → Live Dashboard, with appraisals raised, DE/FC notified, defects reviewed, and reports auto-generated. FTT and defect summaries are calculated automatically and exported as PDF/Word.",
       contribution: [
-        "Power Apps inspection application",
-        "Power Automate workflows",
-        "Power BI live dashboards (FTT, defect rate, workload)",
-        "SharePoint data model & integration",
+        "Power Apps app: login, batch details, approval, inspected-batch reports, member assignment, admin panel",
+        "Real-time batch & member tracking supporting multiple inspectors without conflict",
+        "Automatic FTT and defect-rate calculation, reducing manual errors",
+        "Task allocation via notifications & live dashboards",
+        "Auto-generated FTT/defect reports exported to PDF/Word (Power Automate)",
       ],
       architecture: [
-        "Tablet (Power Apps)",
-        "SharePoint Lists",
-        "Power Automate",
-        "SQL / Data",
-        "Power BI Dashboard",
+        "Batch In",
+        "Admin Panel",
+        "Fabric Inspection (Power Apps)",
+        "Live Dashboard",
+        "Report Generation (PDF/Word)",
       ],
       tech: [
         "Power Apps",
@@ -242,7 +244,7 @@ const PORTFOLIO = {
         "SQL",
       ],
       result:
-        "Replaced paper A4 logs with tablets across inspectors, with auto-calculated reports and live dashboards for real-time visibility.",
+        "Eliminated A4 paper records, enabled real-time batch and member tracking across inspectors, and auto-generated FTT and defect reports — improving data visibility and decision-making. Completed; started 23 Apr 2025 (Product Development).",
       links: {},
     },
     {
@@ -527,6 +529,30 @@ const PORTFOLIO = {
       problem: "Authorised, phone-managed door access.",
       approach: "RFID authentication with a mobile-controlled lock mechanism.",
       outcome: "Working access-control prototype presented at the exhibition.",
+    },
+  ],
+
+  /* -------------------------------------------------------- publications */
+  // Peer-reviewed publications. Source: Google Scholar (profile in `profile.scholar`).
+  publications: [
+    {
+      title:
+        "Unmanned Aerial Vehicle-Based Large Area Disease Detection of Paddy Fields using Machine Learning",
+      authors: "R.S.W. Madanayaka, C.V. Kumarasiri, C.S. Silva",
+      venue: "KDU Journal of Multidisciplinary Studies, Vol. 8, No. 1",
+      year: "2026",
+      type: "Journal",
+      link: "https://scholar.google.com/citations?user=dVNjvdkAAAAJ&hl=en",
+    },
+    {
+      title:
+        "Design and Development of Cost-Effective Unmanned Aerial Vehicle for Crop Field Monitoring",
+      authors: "R.S.W. Madanayaka, C.V. Kumarasiri, C.S. Silva",
+      venue:
+        "2025 IEEE 19th International Conference on Industrial and Information Systems (ICIIS)",
+      year: "2025",
+      type: "Conference",
+      link: "https://scholar.google.com/citations?user=dVNjvdkAAAAJ&hl=en",
     },
   ],
 

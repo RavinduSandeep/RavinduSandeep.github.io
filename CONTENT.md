@@ -8,11 +8,21 @@ rather than filled in. Edit `assets/js/data.js` to change any site content.
 ## ✅ Please verify these facts
 - **Current role** — "Engineer — Electrical & Electronic, Richard Pieris &
   Company PLC (ARPICO), Mattegoda — Nov 2025 – Present." Taken from your CV.
-- **Tea Blending Machine** — no dedicated photo existed in the repo, so the card
-  currently reuses `project-7.png` (panel wiring). **Add a real photo** and set
-  `cover` for the `tea-blending` project in `data.js`.
-- **Fabric Inspection Digitalization** — reuses `project-9.png` as a placeholder.
-  Add a dashboard screenshot if you have one.
+- **Tea Blending Machine** — the off-grid LiFePO4 / BMS work was **removed** per
+  your correction (you didn't do that). No cleared photo exists, so the card uses
+  a **branded schematic cover** (`assets/images/tea-blending-cover.svg`) instead
+  of a wrong photo. Swap in a real photo + set `cover` in `data.js` when ready.
+- **Fabric Inspection Digitalization** — now uses your real process-flow slide
+  (`assets/images/fabric-inspection.png`) and details from your Portfolio PDF
+  (start 23/04/2025, Product Development).
+- **Garment Tube Stretching Machine** — enriched from your Portfolio PDF
+  (18,000-pc Lululemon order, 4 workers → 1 operator, up to 4 tubes/cycle,
+  HMI-controlled). Confirm these figures are OK to publish.
+- **Publications** — pulled from your Google Scholar profile: a KDU Journal of
+  Multidisciplinary Studies paper (Vol. 8 No. 1) and a 2025 IEEE ICIIS paper.
+  Confirm the years/venues are exactly right.
+- **Image cropping fixed** — project images now display **uncropped**
+  (`object-fit: contain`) on a subtle schematic backdrop, so full photos show.
 - **Automated Pick-and-Place** — reuses `project-4.png` (conveyor). Replace if a
   dedicated photo exists.
 - **GPA (3.26/4.00)** and award ("1st Runner-Up, 8th Annual Research Symposium,
