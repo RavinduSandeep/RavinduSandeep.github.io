@@ -1,0 +1,13 @@
+{
+  "name": "Ravindu Madanayaka — Engineering Portfolio",
+  "short_name": "Ravindu M.",
+  "description": "Automation, embedded systems, PCB design, IoT and R&D engineer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0d10",
+  "theme_color": "#0b0d10",
+  "icons": [
+    { "src": "assets/images/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "assets/images/logo.ico", "sizes": "64x64", "type": "image/x-icon" }
+  ]
+}

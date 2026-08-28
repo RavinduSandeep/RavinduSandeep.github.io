@@ -1,1098 +1,266 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RavinduMadanayaka - Personal Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <!-- Prevent theme flash: apply stored/preferred theme before first paint -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) { }
+    })();
+  </script>
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- Primary meta -->
+  <title>Ravindu Madanayaka — Automation & Embedded Systems Engineer</title>
+  <meta name="description"
+    content="Ravindu Madanayaka — Electrical & Electronic Engineer specialising in industrial automation, embedded systems, PCB design, IoT and R&D. Building complete engineering systems from hardware to supervisory software." />
+  <meta name="author" content="Ravindu Madanayaka" />
+  <meta name="keywords"
+    content="Ravindu Madanayaka, Automation Engineer, Embedded Systems Engineer, Industrial Automation, IoT, Electronics, Instrumentation, PCB Design, R&D Engineer, PLC, Raspberry Pi, SolidWorks" />
+  <link rel="canonical" href="https://ravindusandeep.github.io/" />
+  <meta name="theme-color" content="#0b0d10" />
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ravindu Madanayaka — Engineering Portfolio" />
+  <meta property="og:title" content="Ravindu Madanayaka — Automation & Embedded Systems Engineer" />
+  <meta property="og:description"
+    content="Building complete engineering systems from hardware to software — industrial automation, embedded electronics, PCB design, IoT and R&D." />
+  <meta property="og:url" content="https://ravindusandeep.github.io/" />
+  <meta property="og:image" content="https://ravindusandeep.github.io/assets/images/og-cover.svg" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ravindu Madanayaka — Automation & Embedded Systems Engineer" />
+  <meta name="twitter:description"
+    content="Building complete engineering systems from hardware to software — automation, embedded, PCB, IoT, R&D." />
+  <meta name="twitter:image" content="https://ravindusandeep.github.io/assets/images/og-cover.svg" />
+
+  <!-- Icons / manifest -->
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="shortcut icon" href="assets/images/logo.ico" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Fonts: preconnect + display swap -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ravindu Madanayaka",
+    "url": "https://ravindusandeep.github.io/",
+    "jobTitle": "Electrical & Electronic Engineer",
+    "description": "Automation, embedded systems, PCB design, IoT and R&D engineer.",
+    "sameAs": [
+      "https://github.com/RavinduSandeep",
+      "https://www.linkedin.com/in/ravindu-sandeep/"
+    ],
+    "knowsAbout": [
+      "Industrial Automation", "PLC Programming", "Embedded Systems",
+      "PCB Design", "Internet of Things", "Machine Learning", "SolidWorks"
+    ],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Colombo"
+    }
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#projects">Skip to projects</a>
 
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Ravindu Madanayaka" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Ravindu Madanayaka">Ravindu <br> Madanayaka</h1>
-
-          <p class="title">Automation Engineer</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:richard@example.com" class="contact-link">ravindumsandeep<br>@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+12133522795" class="contact-link">+94 77 43 22 855</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1982-06-23">November 01, 1999</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Galle, Sri Lanka</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-      
-
-          <li class="social-item">
-            <a href="https://github.com/RavinduSandeep" class="social-link"target="_blank" rel="noopener noreferrer">
-              <ion-icon name="logo-github"></ion-icon>
-
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/ravindu-sandeep/" class="social-link" target="_blank" rel="noopener noreferrer">
-        <ion-icon name="logo-linkedin"></ion-icon>
+  <!-- ===================================================== HEADER / NAV -->
+  <header class="site-header" id="top">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Ravindu Madanayaka — home">
+        <span class="brand-mark">RAVINDU<span class="brand-dot">.</span></span>
       </a>
-          </li>
 
-          
-
-          
-            </a>
-          </li>
-
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-list" id="navList">
+          <li><a href="#projects" class="nav-link" data-nav>Projects</a></li>
+          <li><a href="#profile" class="nav-link" data-nav>Profile</a></li>
+          <li><a href="#experience" class="nav-link" data-nav>Experience</a></li>
+          <li><a href="#research" class="nav-link" data-nav>Research</a></li>
+          <li><a href="#contact" class="nav-link" data-nav>Contact</a></li>
         </ul>
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-
       </nav>
 
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-           <i style="color: #ffbb00; font-style: italic; display: block; text-align: left;"> Bring me a challenge, and I'll bring the 'how'.</i>
-          </p>
-
-          <p style="text-align: justify;">
-            I'm Ravindu Madanayaka. A graduate with a Bachelor of Engineering Technology in Instrumentation and Automation (Hons) 
-            from Faculty of Technology, University of Colombo. 
-          </p>
-
-          <p style="text-align: justify;">
-            I am passionate about bridging the gap between hardware and software, specializing in 
-            industrial automation, PLC programming, and full-stack digitalization. 
-          </p>
-
-          <p style="text-align: justify;">
-            But my skills don't stop at the technical. As a natural team player and an analytical thinker, 
-            I love collaborating to find the best solutions. 
-          </p>
-
-          <p style="text-align: justify;">
-            I am also a creative graphics and video editor, 
-            which gives me a unique perspective on design and user experience. 
-            Above all, I am a fast learner, always ready to adapt and master new technologies to get the job done.
-          </p>
-        </section>
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What i'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/11.svg
-                " alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Industrial Automation & Control</h4>
-
-                <p class="service-item-text" style="text-align: justify;">
-                  <!-- Developing and implementing PLC based automation solutions with HMI/SCADA integration. -->
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/22.svg" alt="Application Development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Digitalization & Process Automation</h4>
-
-                <p class="service-item-text" style="text-align: justify;">
-                  <!-- Developing Power Platform apps and dashboards to digitize workflows and enable data-driven decisions. -->
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/33.svg" alt="mobile app icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mechanical Design & Prototyping</h4>
-
-                <p class="service-item-text" style="text-align: justify;">
-                  <!-- Engineering custom machinery using SolidWorks for 3D modeling, structural design, and fabrication. -->
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/44.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Embedded Systems & IoT Development</h4>
-
-                <p class="service-item-text" style="text-align: justify;">
-                  <!-- Building smart devices with microcontrollers, sensors, and ML for remote monitoring and control. -->
-                </p>
-              </div>
-
-            </li>
-
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/55.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">AI & Machine <br>Learning</h4>
-
-                <p class="service-item-text" style="text-align: justify;">
-                  <!-- Applying ML and computer vision for automation, detection, and predictive analytics. -->
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/66.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Video Editing & <br>Graphic Design</h4>
-
-                <p class="service-item-text" style="text-align: justify;">
-                  <!-- Producing creative visuals and videos with Adobe Premiere Pro, After Effects, and Photoshop. -->
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Reference</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Mr. Thulith Jayarathne </h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Engineer - Autonomation  
-<br>Seamless Autonomation - MCA, 
-<br>MAS Capital (Private) Ltd. – Active Division, 
-<br>Lot 89A Biyagama EPZ, Sri Lanka 
-<br>thulithj@masholdings.com 
-<br>+94 77 456 3677
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Dr. Chathurika Silva </h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Senior Lecturer | Department of    
-<br>Instrumentation and Automation Technology, 
-<br>Faculty of Technology, University of Colombo  
-<br>chathurika@iat.cmb.ac.lk  
-<br>+94 77 184 7833
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-
-
-        </section>
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-              <time datetime="2021-06-14"></time>
-
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
+      <div class="nav-actions">
+        <a class="btn btn-ghost btn-resume" data-resume href="#" target="_blank" rel="noopener">
+          Resume <span aria-hidden="true">↗</span>
+        </a>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle colour theme">
+          <svg class="ico-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.5" y1="4.5" x2="6.5" y2="6.5"/><line x1="17.5" y1="17.5" x2="19.5" y2="19.5"/><line x1="4.5" y1="19.5" x2="6.5" y2="17.5"/><line x1="17.5" y1="6.5" x2="19.5" y2="4.5"/></g></svg>
+          <svg class="ico-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navList">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================================================== HERO -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="grid-bg" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Electrical &amp; Electronic Engineer</p>
+          <h1 id="hero-title" class="hero-title">
+            Engineering <span class="accent">intelligent systems</span>,<br />from hardware to software.
+          </h1>
+          <p class="hero-sub" data-profile-subline></p>
+
+          <ul class="hero-roles" data-roles aria-label="Focus areas"></ul>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects">View Engineering Projects</a>
+            <a class="btn btn-ghost" data-resume href="#" target="_blank" rel="noopener">Download Resume</a>
+            <a class="btn btn-ghost" data-github href="#" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+            <a class="btn btn-ghost" data-linkedin href="#" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+          </div>
         </div>
 
-
-        <!--
-          - clients -->
-   
-
-        <section class="clients">
-
-          <h3 class="h3 clients-title">Experience</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-    
-
-
-      <!--
-        - #RESUME
-      -->
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Experience</h3>
+        <!-- Animated engineering dataflow -->
+        <div class="hero-viz reveal" aria-hidden="true">
+          <div class="viz-panel">
+            <div class="viz-head"><span class="viz-dot"></span><span class="viz-dot"></span><span class="viz-dot"></span><span class="viz-label">system.dataflow</span></div>
+            <div class="dataflow" data-dataflow></div>
+            <div class="viz-foot"><span>SIGNAL</span><span>ACTIVE</span></div>
           </div>
+        </div>
+      </div>
+      <a class="scroll-hint" href="#projects" aria-label="Scroll to projects"><span></span></a>
+    </section>
 
-          <ol class="timeline-list">
+    <!-- ==================================================== PROJECTS (centrepiece) -->
+    <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="section-index">03 — Selected Work</p>
+          <h2 id="projects-title" class="section-title">Selected Engineering Projects</h2>
+          <p class="section-lead">Real systems spanning electronics, control, embedded firmware and supervisory software. Each is a short engineering case study.</p>
+        </div>
 
-            <li class="timeline-item">
+        <div class="filter-bar reveal" data-filters role="tablist" aria-label="Filter projects"></div>
 
-              <h3 class="h4 timeline-item-title">MAS Active - Linea Intimo
-                </h3>
-<h4 class="h4 timeline-item-title">
-                Intern - Autonomation Department</h4>
+        <div class="projects-grid" data-projects></div>
+      </div>
+    </section>
 
-              <span> Jan. 2025 – Oct. 2025</span>
+    <!-- ==================================================== ENGINEERING PROFILE -->
+    <section class="section profile-section" id="profile" aria-labelledby="profile-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="section-index">02 — Engineering Profile</p>
+          <h2 id="profile-title" class="section-title">Across the full engineering stack</h2>
+          <p class="section-lead">My strength is combining disciplines that are usually separate — designing the hardware, writing the firmware, wiring the machine and building the software that supervises it.</p>
+        </div>
+        <div class="stack-flow" data-stack></div>
+      </div>
+    </section>
 
-              <p class="timeline-text">
-                • Developed a garment stretching machine to eliminate crush marks, including wiring, design, and fabrication.  
-<br>• Gained experienced in Microsoft Power Apps, Power Automate, and other Microsoft 365 tools 
-<br>• Fully Digitized the Fabric Inspection process replacing manual A4 logs with automated reporting and real-time dashboards 
-for enhanced visibility and efficiency.  
-<br>• Gained experience in operational best practices, including 5S, Kaizen, KPI tracking, and TPM. 
-<br>• Exposed to emerging technologies such as AI, machine learning, and industrial automation systems. 
-              </p>
+    <!-- ==================================================== CAPABILITIES -->
+    <section class="section capabilities-section" id="capabilities" aria-labelledby="cap-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="section-index">04 — Capabilities</p>
+          <h2 id="cap-title" class="section-title">Technical Capabilities</h2>
+          <p class="section-lead">Grouped by discipline — the tools and systems I actually work with.</p>
+        </div>
+        <div class="cap-grid" data-capabilities></div>
+      </div>
+    </section>
 
-            </li>
+    <!-- ==================================================== EXPERIENCE -->
+    <section class="section experience-section" id="experience" aria-labelledby="exp-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="section-index">05 — Experience</p>
+          <h2 id="exp-title" class="section-title">Experience</h2>
+        </div>
+        <ol class="timeline" data-experience></ol>
+      </div>
+    </section>
 
-            <li class="timeline-item">
-                <h3 class="h4 timeline-item-title">D Samson Industries (Pvt) Ltd  
-                </h3>
+    <!-- ==================================================== RESEARCH -->
+    <section class="section research-section" id="research" aria-labelledby="res-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="section-index">06 — Research &amp; Achievements</p>
+          <h2 id="res-title" class="section-title">Research &amp; Achievements</h2>
+        </div>
+        <div class="research-grid" data-research></div>
+      </div>
+    </section>
 
-              <h4 class="h4 timeline-item-title">Intern - Research and Development Department</h4>
+    <!-- ==================================================== EDUCATION -->
+    <section class="section education-section" id="education" aria-labelledby="edu-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="section-index">07 — Education</p>
+          <h2 id="edu-title" class="section-title">Education</h2>
+        </div>
+        <div class="edu-grid" data-education></div>
+      </div>
+    </section>
 
-              <span>2013 — 2015</span>
-
-              <p class="timeline-text">
-              <br> • Led development of RFID Vehicle Management System, Heat Transfer Sticker Printing Machine, Automatic Slipper Drilling 
-Machine, and CNC Elastic Marking & Cutting Machine. 
-<br>• Designed 3D models to upgrade the Screen-Printing Machine using SolidWorks. 
-<br>• Programmed microcontrollers, integrated pneumatic/hydraulic systems, and performed welding while adhering to health and 
-safety standards.
-              </p>
-
-           
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Education</h3>
+    <!-- ==================================================== CONTACT -->
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="contact-card reveal">
+          <p class="section-index">09 — Contact</p>
+          <h2 id="contact-title" class="section-title">Let's build something that works.</h2>
+          <p class="section-lead">Open to engineering roles and collaboration in automation, embedded systems, electronics and R&amp;D across the UK, Europe and beyond.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" data-email href="#">Email me</a>
+            <a class="btn btn-ghost" data-linkedin href="#" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn-ghost" data-github href="#" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-ghost" data-resume href="#" target="_blank" rel="noopener">Resume ↗</a>
           </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">University of Colombo</h4>
-
-              <h4 class="h4 timeline-item-title">Bachelor of Engineering Technology in Instrumentation and Automation (Hons)</h4>
-
-              <span>Feb. 2020 – Dec.2024 </span>
-
-              <p class="timeline-text">
-                • GPA: 3.26/4.00 <br> 
-• Coursework: Technical Drawing & CAD, Microcontrollers, PLCs, Electricity & Magnetism, Sensors & Transducers, FPGA, 
-Industrial Automation, Shielding & Protection, Nuclear & Medical Instrumentation, Research Project. 
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">University of Colombo </h4>
-              <h4 class="h4 timeline-item-title">Diploma in Information and Communication Technology </h4>
-
-              <span>Jan. 2022 – Jan.2023</span>
-
-              <p class="timeline-text">
-              • Coursework: Web Application Development, Fundamentals of Software Engineering, Java Programming, Mathematics for 
-Computing, Database Management, Networking Fundamentals.
-              </p>
-
-            </li>
-
-           <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Sri Lanka Institute of Robotics</h4>
-              <h4 class="h4 timeline-item-title">Advanced Certificate in PLC Programming and Automation </h4>
-
-              <span>Dec. 2022 – Jul.2023</span>
-
-              <p class="timeline-text">
-              • Coursework: Siemens S7-200 PLC, Ladder Programming, Motor Drivers, Sensor Modules, Multiple PLC Systems, 
-Industrial Automation.
-              </p>
-
-            </li>
-<li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">ESOFT Metro Campus  </h4>
-              <h4 class="h4 timeline-item-title">Diploma in Software Engineering</h4>
-
-              <span>Jan. 2019 – Jul.2020 </span>
-
-              <p class="timeline-text">
-              • Coursework: C#, Java, UI/UX Design, Project-Based Software Development.
-              </p>
-
-            </li>
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Dr. Richard Pathirana College </h4>
-              <h4 class="h4 timeline-item-title">G.C.E. Advanced Level Examination</h4>
-
-              <span>2018 </span>
-
-              <p class="timeline-text">
-              Engineering Technology Stream (1891901) <br>Z-2.037 | Island Rank-215 | District Rank-19
-              </p>
-
-            </li>
-
-
-          </ol>
-
-       
-<!--
-        <section class="skill">
-
-          <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">IoT design</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Graphic design</h5>
-                <data value="70">70%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Branding</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">WordPress</h5>
-                <data value="50">50%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
--->
-      </article>
-
-
-
-
-
-      <!--
-        - #PORTFOLIO
-      -->
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>IoT design</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Automation</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Application Development</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>IoT design</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Autonomation</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Application Development</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Final Year Research: <br>UAV-Based Remote Sensing for Field-Based Crop Management</h3>
-
-                <p class="project-category">IoT design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="Application Development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">SCADA System <br>Smart Room control System</h3>
-
-                <p class="project-category">IoT design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="IoT design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Smart RFID door lock</h3>
-
-                <p class="project-category">IoT design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="Autonomation">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Conveyor Belt Project </h3>
-
-                <p class="project-category">Autonomation</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="IoT design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Modal Elevator Control Practical</h3>
-
-                <p class="project-category">Autonomation</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="IoT design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Automated garment stretching machine</h3>
-
-                <p class="project-category">Autonomation</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="Application Development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Panel board wiring for Dip Dye machine</h3>
-
-                <p class="project-category">Autonomation</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="Autonomation">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">QuizSpot android app</h3>
-
-                <p class="project-category">Application Development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="Application Development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Motel management system</h3>
-
-                <p class="project-category">Application Development</p>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #BLOG
-      -->
-
-      <article class="blog" data-page="blog">
-
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Final Year Research</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Feb 23, 2024</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">1st Runner-Up in the Research and Innovation Exhibition at the 8th Annual Research Symposium, Faculty 
-of Technology, University of Colombo, 2024. </h3>
-
-                  <p class="blog-text">
-                    Developed a UAV-based system for early paddy disease detection using low-cost RGB imagery and machine learning. The project 
-included quadcopter design, disease detection models, and a web application for user accessibility.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">RFID Door Lock System  </p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Feb 20, 2023</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Presented at the University Annual Research Symposium 2023 Exhibition</h3>
-
-                  <p class="blog-text">
-                    Developed a door lock system that uses RFID technology to grant access to authorized individuals. The system is controlled through 
-a mobile application. 
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-           
-           
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15871.93343992381!2d80.20729782531818!3d6.068235828723321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae171d3c501a547%3A0x867f139c2e02e3a!2sKarapitiya%2C%20Galle%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1668612185563!5m2!1sen!2sus"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
-
-        <section class="contact-form">
-
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-            </div>
-
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
-
-          </form>
-
-        </section>
-
-      </article>
-
-    </div>
-
+        </div>
+      </div>
+    </section>
   </main>
 
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span class="brand-mark small">RAVINDU<span class="brand-dot">.</span></span>
+      <p class="footer-note">Automation • Embedded Systems • R&amp;D — <span data-year></span></p>
+      <a href="#top" class="footer-top">Back to top ↑</a>
+    </div>
+  </footer>
 
+  <!-- ==================================================== PROJECT MODAL -->
+  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-overlay" data-modal-close></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" data-modal-close type="button" aria-label="Close case study">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="modal-body" data-modal-body></div>
+    </div>
+  </div>
 
-
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>

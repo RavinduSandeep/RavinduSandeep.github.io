@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1015"/>
+      <stop offset="1" stop-color="#07090c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.2" cy="0.2" r="0.8">
+      <stop offset="0" stop-color="#f5a524" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#f5a524" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g transform="translate(90,110)">
+    <text x="0" y="0" fill="#f5a524" font-size="22" letter-spacing="5" font-family="'JetBrains Mono', monospace">RAVINDU.</text>
+    <text x="0" y="120" fill="#eef1f5" font-size="82" font-weight="700" letter-spacing="-1">Ravindu Madanayaka</text>
+    <text x="0" y="200" fill="#aab3c0" font-size="40" font-weight="500">Engineering intelligent systems,</text>
+    <text x="0" y="252" fill="#aab3c0" font-size="40" font-weight="500">from hardware to software.</text>
+    <g transform="translate(0,340)" font-family="'JetBrains Mono', monospace" font-size="22">
+      <rect x="0" y="0" width="230" height="48" rx="10" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.12"/>
+      <text x="24" y="31" fill="#eef1f5">Automation</text>
+      <rect x="250" y="0" width="300" height="48" rx="10" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.12"/>
+      <text x="274" y="31" fill="#eef1f5">Embedded Systems</text>
+      <rect x="570" y="0" width="130" height="48" rx="10" fill="#f5a524"/>
+      <text x="600" y="31" fill="#16130a" font-weight="600">R&amp;D</text>
+    </g>
+  </g>
+  <g transform="translate(880,470)" font-family="'JetBrains Mono', monospace" font-size="18" fill="#6b7480">
+    <text x="0" y="0">SENSOR &#8594; MCU &#8594; CONTROL &#8594; EDGE &#8594; WEB HMI</text>
+  </g>
+</svg>

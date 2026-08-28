@@ -1,0 +1,14 @@
+# Dependencies / tooling (site itself needs no build)
+node_modules/
+package.json
+package-lock.json
+
+# QA / scratch artifacts
+qa-shots/
+*.mjs
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
