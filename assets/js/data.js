@@ -340,7 +340,7 @@ const PORTFOLIO = {
     },
     {
       id: "rfid-lock",
-      filters: ["IoT", "Embedded", "Electronics & PCB", "Research"],
+      filters: ["IoT", "Embedded", "Electronics & PCB"],
       title: "Smart RFID Door Lock System",
       category: "IoT / Embedded",
       featured: false,
@@ -547,15 +547,6 @@ const PORTFOLIO = {
         "Custom UAV capturing low-cost RGB imagery; a Random Forest / OpenCV pipeline classifies disease indicators; results surfaced through a web application.",
       outcome:
         "Demonstrated affordable disease detection from RGB imagery, recognised at the university research exhibition.",
-    },
-    {
-      title: "Smart RFID Door Lock System",
-      venue: "University Annual Research Symposium - Exhibition",
-      year: "2023",
-      award: "Exhibited",
-      problem: "Authorised, phone-managed door access.",
-      approach: "RFID authentication with a mobile-controlled lock mechanism.",
-      outcome: "Working access-control prototype presented at the exhibition.",
     },
   ],
 
