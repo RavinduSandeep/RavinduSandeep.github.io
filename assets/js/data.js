@@ -561,7 +561,7 @@ const PORTFOLIO = {
     {
       school: "University of Colombo",
       qualification:
-        "BEng Technology (Hons) — Instrumentation & Automation",
+        "Bachelor of Engineering Technology in Instrumentation and Automation (Hons)",
       period: "Feb 2020 – Dec 2024",
       detail: "GPA 3.26 / 4.00. Research project, PLCs, microcontrollers, FPGA, sensors & transducers, industrial automation.",
       primary: true,
