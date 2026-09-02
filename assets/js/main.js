@@ -1,5 +1,5 @@
 /* ============================================================================
-   Ravindu Madanayaka — Engineering Portfolio
+   Ravindu Madanayaka - Engineering Portfolio
    Rendering + interactions. Content lives in data.js (window.PORTFOLIO).
    ========================================================================== */
 (function () {
@@ -109,11 +109,8 @@
     });
   }
 
-  /* ------------------------------------------------------- projects rail */
-  var rail = $("[data-projects]");
-  var railCount = $("[data-rail-count]");
-  var railPrev = $("[data-rail-prev]");
-  var railNext = $("[data-rail-next]");
+  /* ------------------------------------------------------- projects grid */
+  var grid = $("[data-projects]");
   var activeFilter = "All";
   var visible = [];
 
@@ -159,56 +156,12 @@
     return c;
   }
   function renderProjects() {
-    if (!rail) return;
+    if (!grid) return;
     visible = D.projects.filter(function (p) { return activeFilter === "All" || p.category === activeFilter; });
-    rail.innerHTML = "";
-    rail.classList.toggle("rail-empty", visible.length === 0);
-    if (!visible.length) { rail.innerHTML = "<p>No projects in this category yet.</p>"; }
-    visible.forEach(function (p, i) { rail.appendChild(projectCard(p, i)); });
-    rail.scrollLeft = 0;
-    updateRail();
-  }
-  function railCards() { return $$(".pcard", rail); }
-  function railPad() { return parseFloat(getComputedStyle(rail).paddingLeft) || 0; }
-  function cardStart(c) { return c.offsetLeft - railPad(); }
-  function currentIndex() {
-    var cards = railCards(), sl = rail.scrollLeft, idx = 0, best = Infinity;
-    cards.forEach(function (c, i) {
-      var d = Math.abs(cardStart(c) - sl);
-      if (d < best) { best = d; idx = i; }
-    });
-    return idx;
-  }
-  function updateRail() {
-    if (!rail) return;
-    var cards = railCards(), n = cards.length;
-    var idx = n ? currentIndex() : -1;
-    if (railCount) railCount.textContent = (n ? idx + 1 : 0) + " / " + n;
-    var atEnd = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 2;
-    if (railPrev) railPrev.disabled = idx <= 0;
-    if (railNext) railNext.disabled = n === 0 || atEnd;
-  }
-  function scrollToCard(i) {
-    var cards = railCards();
-    if (!cards[i]) return;
-    rail.scrollTo({ left: cardStart(cards[i]), behavior: reduceMotion ? "auto" : "smooth" });
-  }
-  function initRail() {
-    if (!rail) return;
-    var ticking = false;
-    rail.addEventListener("scroll", function () {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () { updateRail(); ticking = false; });
-    }, { passive: true });
-    window.addEventListener("resize", updateRail);
-    if (railPrev) railPrev.addEventListener("click", function () { scrollToCard(currentIndex() - 1); });
-    if (railNext) railNext.addEventListener("click", function () { scrollToCard(currentIndex() + 1); });
-    // Keyboard: left/right arrows move the rail when a card is focused.
-    rail.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowRight") { e.preventDefault(); var n = railCards()[currentIndex() + 1]; if (n) n.focus(); }
-      if (e.key === "ArrowLeft") { e.preventDefault(); var pv = railCards()[currentIndex() - 1]; if (pv) pv.focus(); }
-    });
+    grid.innerHTML = "";
+    if (!visible.length) { grid.innerHTML = '<p class="empty">No projects in this category yet.</p>'; }
+    visible.forEach(function (p, i) { grid.appendChild(projectCard(p, i)); });
+    grid.classList.add("in");
   }
 
   /* ------------------------------------------------------- modal */
@@ -254,8 +207,8 @@
       (p.architecture ? section("System architecture", archFlow(p.architecture)) : "") +
       section("Result / impact", "<p>" + esc(p.result) + "</p>") +
       '<div class="modal-foot">' +
-        '<button type="button" class="modal-navbtn prev" data-modal-prev' + (prev ? "" : " disabled") + '><small>Previous</small><span>' + esc(prev ? prev.title : "—") + "</span></button>" +
-        '<button type="button" class="modal-navbtn next" data-modal-next' + (next ? "" : " disabled") + '><small>Next</small><span>' + esc(next ? next.title : "—") + "</span></button>" +
+        '<button type="button" class="modal-navbtn prev" data-modal-prev' + (prev ? "" : " disabled") + '><small>Previous</small><span>' + esc(prev ? prev.title : "-") + "</span></button>" +
+        '<button type="button" class="modal-navbtn next" data-modal-next' + (next ? "" : " disabled") + '><small>Next</small><span>' + esc(next ? next.title : "-") + "</span></button>" +
       "</div>";
     modalMain.scrollTop = 0;
     modalSide.scrollTop = 0;
@@ -519,7 +472,6 @@
   buildFeatured();
   buildFilters();
   renderProjects();
-  initRail();
   buildExperience();
   buildCapabilities();
   buildAchievements();
@@ -530,7 +482,6 @@
   initNavSpy();
   initMenu();
   initTheme();
-  var onMq = function () { syncAccordion(); updateRail(); };
+  var onMq = function () { syncAccordion(); };
   mqMobile.addEventListener ? mqMobile.addEventListener("change", onMq) : mqMobile.addListener(onMq);
-  window.addEventListener("load", updateRail);
 })();
