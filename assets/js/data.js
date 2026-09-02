@@ -18,6 +18,10 @@ const PORTFOLIO = {
   profile: {
     name: "Ravindu Madanayaka",
     monogram: "RAVINDU.",
+    // Short professional title shown above the name in the hero.
+    title: "Electrical & Electronic Engineer",
+    // Specialisation line shown in the hero stack panel footer.
+    specialization: "Automation · Embedded Systems · R&D",
     // Headline positioning — the first thing a visitor reads.
     headline: "Engineering intelligent systems, from hardware to software.",
     // One supporting sentence. Evidence-based, no filler.
@@ -529,6 +533,36 @@ const PORTFOLIO = {
       problem: "Authorised, phone-managed door access.",
       approach: "RFID authentication with a mobile-controlled lock mechanism.",
       outcome: "Working access-control prototype presented at the exhibition.",
+    },
+  ],
+
+  /* --------------------------------------------------------- achievements */
+  // Compact strip of awards / recognitions. All items are drawn from the
+  // research and publications records above — nothing is invented.
+  achievements: [
+    {
+      label: "1st Runner-Up",
+      detail:
+        "Research & Innovation Exhibition — 8th Annual Research Symposium, Faculty of Technology, University of Colombo",
+      year: "2024",
+    },
+    {
+      label: "IEEE ICIIS Paper",
+      detail:
+        "Cost-effective UAV for crop-field monitoring — 2025 IEEE 19th International Conference on Industrial and Information Systems",
+      year: "2025",
+    },
+    {
+      label: "Journal Publication",
+      detail:
+        "UAV-based paddy disease detection using machine learning — KDU Journal of Multidisciplinary Studies",
+      year: "2026",
+    },
+    {
+      label: "Exhibited Prototype",
+      detail:
+        "Smart RFID Door Lock System — University Annual Research Symposium Exhibition",
+      year: "2023",
     },
   ],
 

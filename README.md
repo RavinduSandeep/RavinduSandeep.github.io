@@ -20,14 +20,29 @@ control, embedded firmware and supervisory software.
 
 ## Features
 
+- **Compact, section-based layout** — hero, projects, experience, skills,
+  research & achievements, education, contact. Sticky top nav with
+  active-section highlighting.
+- **Hero that answers "who is this?" in one screen** — name, title, one-line
+  pitch, focus-area chips, an animated `system.stack` panel (Hardware →
+  Embedded → Automation → Edge → Digital) and four featured projects.
+- **Projects rail** — category tabs + horizontal scroll-snap browsing with
+  prev/next controls and a counter, instead of a long stacked grid.
+- **Case-study modal** — two-pane on desktop, bottom sheet on tablet/mobile,
+  prev/next project navigation, focus-trapped, keyboard accessible.
+- **Experience as tabs**, **skills as chip groups** (accordion on mobile),
+  achievements strip + research cards + publications side by side,
+  education as a 2×2 grid.
+- **Mobile-specific navigation** — bottom tab bar (Home / Projects / Work /
+  Skills / Contact) plus a full-width menu sheet with Resume / GitHub /
+  LinkedIn / Scholar links. Horizontal-scroll chips and tabs where they save
+  vertical space.
 - Dark (primary) + light theme, remembered in `localStorage`, no flash on load.
-- Animated hero "dataflow" diagram (Sensor → MCU → Control → Edge → Web HMI).
-- Project **case-study** cards with an accessible, focus-trapped detail modal.
 - Content fully separated from layout (`assets/js/data.js`).
 - SEO: meta description, canonical, Open Graph, Twitter card, JSON-LD `Person`,
   `sitemap.xml`, `robots.txt`, web manifest, SVG favicon + social cover.
 - WCAG-minded: semantic landmarks, skip link, visible focus, keyboard nav,
-  aria labels, reduced-motion support.
+  aria labels, 44px touch targets, reduced-motion support.
 
 ## Project structure
 
@@ -69,8 +84,9 @@ Copy any object inside `projects[]` and fill the fields:
 }
 ```
 
-Update `experience`, `education`, `capabilities`, `research` and `profile`
-(name, links, resume path) the same way. Set any link to `""` to hide its button.
+Update `experience`, `education`, `capabilities`, `research`, `achievements`,
+`publications` and `profile` (name, title, links, resume path) the same way.
+The first four projects with `featured: true` appear in the hero. Set any link to `""` to hide its button.
 
 ## Local development
 
