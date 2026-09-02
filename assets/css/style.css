@@ -283,8 +283,8 @@ svg { flex: 0 0 auto; }
 .sub-h-link:hover { text-decoration: underline; }
 
 /* ---------------------------------------------------------------- tabs (filters) */
-.tabs { display: flex; gap: .4rem; overflow-x: auto; scrollbar-width: none; padding: 2px 2px 4px; margin-bottom: .9rem; -webkit-overflow-scrolling: touch; }
-.tabs::-webkit-scrollbar { display: none; }
+.tabs { display: flex; flex-wrap: wrap; gap: .45rem; padding: 2px; margin-bottom: 1rem; }
+.tab-count { margin-left: .45rem; font-size: .66rem; opacity: .65; }
 .tab {
   flex: 0 0 auto; font-family: var(--font-mono); font-size: .74rem; color: var(--text-2); white-space: nowrap;
   padding: .42rem .85rem; min-height: 36px; border: 1px solid var(--border); border-radius: 999px; background: transparent;
@@ -318,7 +318,12 @@ svg { flex: 0 0 auto; }
 .pcard-problem { color: var(--text-2); font-size: .86rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .pcard-tags { display: flex; gap: .3rem; flex-wrap: nowrap; overflow: hidden; margin-top: .2rem; mask-image: linear-gradient(90deg, #000 85%, transparent); -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); }
 .tag { flex: 0 0 auto; font-family: var(--font-mono); font-size: .66rem; color: var(--text-2); padding: .2rem .45rem; border: 1px solid var(--border); border-radius: 6px; white-space: nowrap; }
-.pcard-cta { margin-top: auto; padding-top: .45rem; display: inline-flex; align-items: center; gap: .3rem; font-family: var(--font-mono); font-size: .72rem; color: var(--accent); }
+.pcard-conf { display: none; color: var(--accent); }
+.pcard-actions { margin-top: auto; padding-top: .55rem; display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .6rem; }
+.pcard-cta { display: inline-flex; align-items: center; gap: .3rem; font-family: var(--font-mono); font-size: .74rem; color: var(--accent); background: none; border: 0; padding: .3rem 0; min-height: 32px; }
+.pcard-cta:hover { text-decoration: underline; }
+.pcard-link { display: inline-flex; align-items: center; gap: .3rem; font-size: .74rem; font-weight: 500; color: var(--text-2); padding: .3rem .55rem; min-height: 32px; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); transition: border-color .2s, color .2s; }
+.pcard-link:hover { color: var(--text); border-color: var(--border-strong); }
 
 /* ---------------------------------------------------------------- experience */
 .xp { display: grid; grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); gap: 1.1rem; align-items: start; }
@@ -511,7 +516,7 @@ svg { flex: 0 0 auto; }
   .nav-extra-link { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; min-height: 44px; padding: .5rem .6rem; font-size: .84rem; font-weight: 500; color: var(--text-2); border: 1px solid var(--border); border-radius: 10px; }
   .nav-extra-link:hover { color: var(--text); border-color: var(--border-strong); }
   .nav-actions { margin-left: auto; }
-  .menu-btn { display: inline-flex; }
+  .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
   .menu-btn.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
   .menu-btn.open span:nth-child(2) { opacity: 0; }
   .menu-btn.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
@@ -588,9 +593,21 @@ svg { flex: 0 0 auto; }
   /* sections */
   .section { padding: 2rem 0; }
   .section-bar { margin-bottom: .9rem; }
-  .projects-grid { grid-template-columns: 1fr; gap: .8rem; }
-  .tabs .tab { min-height: 38px; }
-  .tabs { margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); }
+  .projects-grid { grid-template-columns: 1fr; gap: .7rem; }
+  .tabs .tab { min-height: 40px; padding-inline: .8rem; }
+  /* compact list-style cards on phones: thumbnail left, text right */
+  .pcard { display: grid; grid-template-columns: 124px minmax(0, 1fr); align-items: stretch; }
+  .pcard-media { aspect-ratio: auto; min-height: 100%; }
+  .pcard-media img, .pcard-media.fit-cover img { object-fit: contain; padding: 8px; }
+  .pcard-media.fit-cover::after { display: none; }
+  .pcard-badges { display: none; }
+  .pcard-conf { display: inline; }
+  .pcard-body { padding: .75rem .85rem .8rem; gap: .3rem; }
+  .pcard-meta { flex-wrap: wrap; justify-content: flex-start; gap: .1rem .6rem; }
+  .pcard-year { white-space: normal; }
+  .pcard-title { font-size: .98rem; }
+  .pcard-problem { font-size: .82rem; -webkit-line-clamp: 2; }
+  .pcard-actions { padding-top: .35rem; }
 
   /* experience: horizontal tabs */
   .xp { grid-template-columns: 1fr; gap: .8rem; }

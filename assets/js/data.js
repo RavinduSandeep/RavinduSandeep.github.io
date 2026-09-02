@@ -76,18 +76,33 @@ const PORTFOLIO = {
   // Nodes for the animated hero system diagram.
   dataflow: ["Sensor", "MCU", "Control", "Edge Compute", "Web HMI"],
 
+  /* ---------------------------------------------------- project filters */
+  // Filter buttons shown above the project grid, in this order. Each project
+  // lists the filters it belongs to in its `filters` array (a project can
+  // appear under several). "All" is added automatically.
+  projectFilters: [
+    "Automation",
+    "Embedded",
+    "Electronics & PCB",
+    "IoT",
+    "Software & Digital",
+    "Research",
+  ],
+
   /* ------------------------------------------------------------ projects */
   /*
    * Each project renders as a case-study card; the strongest ones open a
    * detailed modal. Keep claims verifiable - do not invent metrics.
    *
-   *  featured : true  -> larger card + opens full case study
+   *  featured : true  -> shown in the hero "Featured work" row
+   *  filters  : which filter buttons show this project (see projectFilters)
    *  images   : first image is the card cover; all show in the gallery
-   *  links    : { github, demo, caseStudy } - omit or "" to hide a button
+   *  links    : { github, demo, docs, caseStudy } - omit or "" to hide a button
    */
   projects: [
     {
       id: "tea-blending",
+      filters: ["Automation", "Embedded"],
       title: "Automated Tea Blending Machine",
       category: "Industrial Automation",
       featured: true,
@@ -127,6 +142,7 @@ const PORTFOLIO = {
     },
     {
       id: "uav-crop",
+      filters: ["Research", "Embedded", "Electronics & PCB", "Software & Digital"],
       title: "UAV-Based Remote Sensing for Crop Management",
       category: "R&D / Machine Learning",
       featured: true,
@@ -171,6 +187,7 @@ const PORTFOLIO = {
     },
     {
       id: "stretching-machine",
+      filters: ["Automation", "Electronics & PCB"],
       title: "Garment Tube Stretching Machine",
       category: "Industrial Automation",
       featured: true,
@@ -213,6 +230,7 @@ const PORTFOLIO = {
     },
     {
       id: "fabric-inspection",
+      filters: ["Software & Digital"],
       title: "Fabric Inspection Digitalization",
       category: "Digitalization",
       featured: true,
@@ -253,6 +271,7 @@ const PORTFOLIO = {
     },
     {
       id: "scada-room",
+      filters: ["Automation", "Software & Digital", "IoT"],
       title: "SCADA Smart Room Control System",
       category: "Automation",
       featured: false,
@@ -282,6 +301,7 @@ const PORTFOLIO = {
     },
     {
       id: "pick-place",
+      filters: ["Automation"],
       title: "Automated Pick-and-Place System",
       category: "Automation",
       featured: false,
@@ -320,6 +340,7 @@ const PORTFOLIO = {
     },
     {
       id: "rfid-lock",
+      filters: ["IoT", "Embedded", "Electronics & PCB", "Research"],
       title: "Smart RFID Door Lock System",
       category: "IoT / Embedded",
       featured: false,
@@ -349,6 +370,7 @@ const PORTFOLIO = {
     },
     {
       id: "panel-wiring",
+      filters: ["Automation", "Electronics & PCB"],
       title: "Dip-Dye Machine Panel Wiring",
       category: "Industrial Automation",
       featured: false,
@@ -374,6 +396,7 @@ const PORTFOLIO = {
     },
     {
       id: "conveyor",
+      filters: ["Automation"],
       title: "Conveyor Belt Automation",
       category: "Automation",
       featured: false,

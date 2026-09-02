@@ -101,7 +101,7 @@
       var t = el("article", "ftile");
       t.setAttribute("aria-label", "Open case study: " + p.title);
       t.innerHTML =
-        mediaHTML(p, "ftile-media") +
+        mediaHTML(p, "ftile-media", true) +
         '<div class="ftile-body"><span class="ftile-cat">' + esc(p.category) + "</span>" +
         '<h3 class="ftile-title">' + esc(p.title) + "</h3></div>";
       buttonize(t, function () { openProject(D.projects, D.projects.indexOf(p), t); });
@@ -114,21 +114,29 @@
   var activeFilter = "All";
   var visible = [];
 
-  function categories() {
-    var set = ["All"];
-    D.projects.forEach(function (p) { if (set.indexOf(p.category) === -1) set.push(p.category); });
-    return set;
+  function projectFilters(p) { return p.filters && p.filters.length ? p.filters : [p.category]; }
+  function filterList() {
+    var list = ["All"];
+    (D.projectFilters || []).forEach(function (f) { if (list.indexOf(f) === -1) list.push(f); });
+    D.projects.forEach(function (p) {
+      projectFilters(p).forEach(function (f) { if (list.indexOf(f) === -1) list.push(f); });
+    });
+    return list;
   }
+  function matches(p, f) { return f === "All" || projectFilters(p).indexOf(f) !== -1; }
   function buildFilters() {
     var host = $("[data-filters]");
     if (!host) return;
-    categories().forEach(function (cat) {
-      var b = el("button", "tab", esc(cat));
+    filterList().forEach(function (f) {
+      var n = D.projects.filter(function (p) { return matches(p, f); }).length;
+      if (!n) return;
+      var b = el("button", "tab", esc(f) + '<span class="tab-count">' + n + "</span>");
       b.type = "button";
       b.setAttribute("role", "tab");
-      b.setAttribute("aria-selected", cat === "All" ? "true" : "false");
+      b.setAttribute("aria-selected", f === "All" ? "true" : "false");
       b.addEventListener("click", function () {
-        activeFilter = cat;
+        if (activeFilter === f) return;
+        activeFilter = f;
         $$(".tab", host).forEach(function (x) { x.setAttribute("aria-selected", "false"); });
         b.setAttribute("aria-selected", "true");
         renderProjects();
@@ -136,9 +144,20 @@
       host.appendChild(b);
     });
   }
+  function linkButtons(p, cls) {
+    var L = p.links || {}, out = "";
+    var add = function (href, label, ic) {
+      if (!href) return;
+      out += '<a class="' + cls + '" href="' + esc(href) + '" target="_blank" rel="noopener" aria-label="' + esc(label + ": " + p.title) + '">' + icon(ic, 14) + "<span>" + esc(label) + "</span></a>";
+    };
+    add(L.github, "GitHub", "i-github");
+    add(L.demo, "Demo", "i-ext");
+    add(L.docs, "Docs", "i-doc");
+    add(L.caseStudy, "Read more", "i-ext");
+    return out;
+  }
   function projectCard(p, i) {
     var c = el("article", "pcard");
-    c.setAttribute("aria-label", "Open case study: " + p.title);
     var badges = p.confidential ? '<span class="badge conf">Confidential</span>' : "";
     c.innerHTML =
       '<div class="pcard-media fit-' + fitOf(p) + '">' +
@@ -146,18 +165,24 @@
         '<img src="' + esc(p.cover) + '" alt="' + esc(p.title) + '" loading="lazy" decoding="async" />' +
       "</div>" +
       '<div class="pcard-body">' +
-        '<div class="pcard-meta"><span class="pcard-cat">' + esc(p.category) + '</span><span class="pcard-year">' + esc(p.year) + "</span></div>" +
+        '<div class="pcard-meta"><span class="pcard-cat">' + esc(p.category) + '</span><span class="pcard-year">' + esc(p.year) + (p.confidential ? ' <span class="pcard-conf">· Confidential</span>' : "") + "</span></div>" +
         '<h3 class="pcard-title">' + esc(p.title) + "</h3>" +
         '<p class="pcard-problem">' + esc(p.problem) + "</p>" +
         '<div class="pcard-tags">' + tagsHTML(p.tech) + "</div>" +
-        '<span class="pcard-cta">Open case study ' + icon("i-arrow", 14) + "</span>" +
+        '<div class="pcard-actions">' +
+          '<button type="button" class="pcard-cta" aria-label="Open case study: ' + esc(p.title) + '">Case study ' + icon("i-arrow", 14) + "</button>" +
+          linkButtons(p, "pcard-link") +
+        "</div>" +
       "</div>";
-    buttonize(c, function () { openProject(visible, i, c); });
+    c.addEventListener("click", function (e) {
+      if (e.target.closest("a")) return;              // external links act on their own
+      openProject(visible, i, $(".pcard-cta", c));
+    });
     return c;
   }
   function renderProjects() {
     if (!grid) return;
-    visible = D.projects.filter(function (p) { return activeFilter === "All" || p.category === activeFilter; });
+    visible = D.projects.filter(function (p) { return matches(p, activeFilter); });
     grid.innerHTML = "";
     if (!visible.length) { grid.innerHTML = '<p class="empty">No projects in this category yet.</p>'; }
     visible.forEach(function (p, i) { grid.appendChild(projectCard(p, i)); });

@@ -26,8 +26,12 @@ control, embedded firmware and supervisory software.
 - **Hero that answers "who is this?" in one screen** — name, title, one-line
   pitch, focus-area chips, an animated `system.stack` panel (Hardware →
   Embedded → Automation → Edge → Digital) and four featured projects.
-- **Projects rail** — category tabs + horizontal scroll-snap browsing with
-  prev/next controls and a counter, instead of a long stacked grid.
+- **Filtered project grid** - 3 columns on desktop, 2 on laptop/tablet, 1 on
+  phones (compact thumbnail-left cards). Filter buttons (All / Automation /
+  Embedded / Electronics & PCB / IoT / Software & Digital / Research) with
+  counts; a project can belong to several filters via its `filters` array.
+  Cards show cover, category, year, title, one-line summary, tech tags, a
+  "Case study" button and any GitHub / Demo / Docs / Read-more links.
 - **Case-study modal** — two-pane on desktop, bottom sheet on tablet/mobile,
   prev/next project navigation, focus-trapped, keyboard accessible.
 - **Experience as tabs**, **skills as chip groups** (accordion on mobile),
